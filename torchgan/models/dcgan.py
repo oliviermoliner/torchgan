@@ -3,11 +3,13 @@ from math import ceil, log2
 import torch.nn as nn
 import torch.nn.functional as F
 
+from ..registry import DISCRIMINATORS, GENERATORS
 from .model import Discriminator, Generator
 
 __all__ = ["DCGANGenerator", "DCGANDiscriminator"]
 
 
+@GENERATORS.register_module
 class DCGANGenerator(Generator):
     r"""Deep Convolutional GAN (DCGAN) generator from
     `"Unsupervised Representation Learning With Deep Convolutional Generative Aversarial Networks
@@ -110,6 +112,7 @@ class DCGANGenerator(Generator):
         return self.model(x)
 
 
+@DISCRIMINATORS.register_module
 class DCGANDiscriminator(Discriminator):
     r"""Deep Convolutional GAN (DCGAN) discriminator from
     `"Unsupervised Representation Learning With Deep Convolutional Generative Aversarial Networks

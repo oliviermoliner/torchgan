@@ -3,6 +3,7 @@ import torch.nn as nn
 
 __all__ = ["MinibatchDiscrimination1d"]
 
+
 # The original paper by Salimans et. al. discusses only 1D minibatch discrimination
 class MinibatchDiscrimination1d(nn.Module):
     r"""1D Minibatch Discrimination Module as proposed in the paper `"Improved Techniques for

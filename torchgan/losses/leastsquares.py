@@ -1,11 +1,13 @@
 import torch
 
+from ..registry import DISCRIMINATOR_LOSSES, GENERATOR_LOSSES
 from .functional import least_squares_discriminator_loss, least_squares_generator_loss
 from .loss import DiscriminatorLoss, GeneratorLoss
 
 __all__ = ["LeastSquaresGeneratorLoss", "LeastSquaresDiscriminatorLoss"]
 
 
+@GENERATOR_LOSSES.register_module
 class LeastSquaresGeneratorLoss(GeneratorLoss):
     r"""Least Squares GAN generator loss from `"Least Squares Generative Adversarial Networks
     by Mao et. al." <https://arxiv.org/abs/1611.04076>`_ paper
@@ -47,6 +49,7 @@ class LeastSquaresGeneratorLoss(GeneratorLoss):
         return least_squares_generator_loss(dgz, self.c, self.reduction)
 
 
+@DISCRIMINATOR_LOSSES.register_module
 class LeastSquaresDiscriminatorLoss(DiscriminatorLoss):
     r"""Least Squares GAN discriminator loss from `"Least Squares Generative Adversarial Networks
     by Mao et. al." <https://arxiv.org/abs/1611.04076>`_ paper.

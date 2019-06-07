@@ -5,6 +5,8 @@ from torchgan import metrics
 from torchgan import logging
 from torchgan import layers
 
+from .registry import *
+
 __version__ = "v0.0.3-alpha"
 
 name = "torchgan"

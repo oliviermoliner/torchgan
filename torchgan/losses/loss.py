@@ -1,9 +1,12 @@
 import torch
 import torch.nn as nn
 
+from ..registry import DISCRIMINATOR_LOSSES, GENERATOR_LOSSES
+
 __all__ = ["GeneratorLoss", "DiscriminatorLoss"]
 
 
+@GENERATOR_LOSSES.register_module
 class GeneratorLoss(nn.Module):
     r"""Base class for all generator losses.
 
@@ -111,6 +114,7 @@ class GeneratorLoss(nn.Module):
             return loss.item()
 
 
+@DISCRIMINATOR_LOSSES.register_module
 class DiscriminatorLoss(nn.Module):
     r"""Base class for all discriminator losses.
 

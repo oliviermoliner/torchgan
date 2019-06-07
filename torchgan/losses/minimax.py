@@ -1,11 +1,13 @@
 import torch
 
+from ..registry import DISCRIMINATOR_LOSSES, GENERATOR_LOSSES
 from .functional import minimax_discriminator_loss, minimax_generator_loss
 from .loss import DiscriminatorLoss, GeneratorLoss
 
 __all__ = ["MinimaxGeneratorLoss", "MinimaxDiscriminatorLoss"]
 
 
+@GENERATOR_LOSSES.register_module
 class MinimaxGeneratorLoss(GeneratorLoss):
     r"""Minimax game generator loss from the original GAN paper `"Generative Adversarial Networks
     by Goodfellow et. al." <https://arxiv.org/abs/1406.2661>`_
@@ -51,6 +53,7 @@ class MinimaxGeneratorLoss(GeneratorLoss):
         return minimax_generator_loss(dgz, self.nonsaturating, self.reduction)
 
 
+@DISCRIMINATOR_LOSSES.register_module
 class MinimaxDiscriminatorLoss(DiscriminatorLoss):
     r"""Minimax game discriminator loss from the original GAN paper `"Generative Adversarial Networks
     by Goodfellow et. al." <https://arxiv.org/abs/1406.2661>`_

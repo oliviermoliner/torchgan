@@ -136,7 +136,6 @@ pygments_style = "sphinx"
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
-
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -178,7 +177,6 @@ html_static_path = ["_static"]
 #    'using/windows': ['searchbox.html', 'windowssidebar.html'],
 # }
 
-
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
@@ -207,7 +205,6 @@ else:
             "_static/theme_overrides.css",
         ]
     }
-
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -239,13 +236,11 @@ latex_documents = [
     )
 ]
 
-
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [(master_doc, "torchgan", "torchgan Documentation", [author], 1)]
-
 
 # -- Options for Texinfo output -------------------------------------------
 
@@ -263,7 +258,6 @@ texinfo_documents = [
         "Miscellaneous",
     )
 ]
-
 
 # -- Options for Epub output ----------------------------------------------
 
@@ -284,7 +278,6 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ["search.html"]
-
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
