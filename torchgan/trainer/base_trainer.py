@@ -70,7 +70,7 @@ class BaseTrainer(object):
         log_dir=None,
         test_noise=None,
         nrow=8,
-        **kwargs
+        **kwargs,
     ):
         self.device = device
         self.losses = {}
@@ -374,14 +374,17 @@ class BaseTrainer(object):
         master_bar_iter = master_bar(range(self.start_epoch, self.epochs))
         for epoch in master_bar_iter:
 
-            master_bar_iter.first_bar.comment = f'Training Progress'
+            master_bar_iter.first_bar.comment = f"Training Progress"
 
             for model in self.model_names:
                 getattr(self, model).train()
 
-            for progress_bar_iter, data in zip(progress_bar(range(len(data_loader)), parent=master_bar_iter), data_loader):
+            for progress_bar_iter, data in zip(
+                progress_bar(range(len(data_loader)), parent=master_bar_iter),
+                data_loader,
+            ):
 
-                master_bar_iter.child.comment = f'Epoch {epoch+1} Progress'
+                master_bar_iter.child.comment = f"Epoch {epoch+1} Progress"
 
                 if type(data) is tuple or type(data) is list:
                     self.real_inputs = data[0].to(self.device)
@@ -398,7 +401,6 @@ class BaseTrainer(object):
                 self.loss_information["discriminator_iters"] += dis_iter
 
                 self.logger.run_mid_epoch(self)
-
 
             if "save_items" in kwargs:
                 self.save_model(epoch, kwargs["save_items"])
