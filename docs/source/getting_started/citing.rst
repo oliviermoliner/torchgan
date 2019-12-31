@@ -9,7 +9,7 @@ if you could cite the following:
 .. code::
 
     @misc{pal2019torchgan,
-        title={{TorchGAN: A Flexible Framework for GAN Training and Evaluation}},
+        title={TorchGAN: A Flexible Framework for GAN Training and Evaluation},
         author={Avik Pal, and Aniket Das},
         year={2019},
         eprint={1909.03410},
