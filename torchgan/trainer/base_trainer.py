@@ -397,7 +397,7 @@ class BaseTrainer(object):
         for epoch in master_bar_iter:
 
             start_time = time.time()
-            master_bar_iter.first_bar.comment = f"Training Progress"
+            master_bar_iter.main_bar.comment = f"Training Progress"
 
             for model in self.model_names:
                 getattr(self, model).train()
